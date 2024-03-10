@@ -1,7 +1,7 @@
 import { fetchGoogleJobs } from "@/app/scrappers/googleScrapper/fetchData"
 import { fetchInternshalaData } from "@/app/scrappers/internshalaScrapper/fetchData"
 
-export default async function handler(req, res) {
+export const GET = async (req, res) => {
   try {
     await fetchInternshalaData()
     await fetchGoogleJobs()
