@@ -4,7 +4,6 @@ const cron = require("cron")
 
 export async function fetchGoogleJobs() {
   try {
-    console.log("google")
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto(

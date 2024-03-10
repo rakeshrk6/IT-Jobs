@@ -1,10 +1,11 @@
 import Internshala from "@/models/internshala"
-import scheduleCronJob from "@/app/cronJob"
+import { connectToDB } from "@/utils/database"
 const puppeteer = require("puppeteer")
 const cron = require("cron")
 
 export async function fetchInternshalaData() {
   try {
+    await connectToDB()
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto(
