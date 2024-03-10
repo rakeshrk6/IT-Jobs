@@ -1,6 +1,5 @@
 import { companyData } from "@/assets/companyCardData"
 import CompanyCard from "@/components/CompanyCard"
-import scheduleCronJob from "./cronJob"
 
 const page = () => {
   return (
