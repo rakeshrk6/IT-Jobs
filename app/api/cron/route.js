@@ -1,9 +1,7 @@
 import { fetchGoogleJobs } from "@/app/scrappers/googleScrapper/fetchData"
 import { fetchInternshalaData } from "@/app/scrappers/internshalaScrapper/fetchData"
 
-const cron = require("node-cron")
-
-export const GET = async (req, res) => {
+export default async function handler(req, res) {
   try {
     await fetchInternshalaData()
     await fetchGoogleJobs()
