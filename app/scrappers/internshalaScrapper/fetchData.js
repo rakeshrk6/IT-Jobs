@@ -13,24 +13,29 @@ export async function fetchInternshalaData() {
     )
 
     const jobs = await page.$$eval(
-      "#internship_list_container_1 .internship_meta",
+      "#internship_list_container_1 .individual_internship",
       (ele) =>
         ele.map((e) => ({
-          title: e.querySelector(".individual_internship_header .heading_4_5")
-            .innerText,
-          companyName: e.querySelector(".link_display_like_text").innerText,
-          location: e.querySelector("#location_names .location_link").innerText,
-          stipend: e.querySelector(".stipend_container .item_body span")
-            .innerText,
-          jobType: e.querySelector(".other_label_container .status").innerText,
-          url: e.querySelector(".company h3 a").href,
-          img:
-            e.querySelector(
-              ".individual_internship_header .internship_logo img"
-            )?.src ?? "",
+          title:
+            e.querySelector(".individual_internship_header .heading_4_5")
+              ?.innerText || "",
+          companyName:
+            e.querySelector(".individual_internship_header .company_name")
+              ?.innerText || "",
+          location: e.querySelector("#location_names")?.innerText || "",
+          stipend:
+            e.querySelector(".stipend_container .item_body span")?.innerText ||
+            "",
+          jobType:
+            e.querySelector(".other_label_container .status")?.innerText || "",
+          url:
+            `https://internshala.com${e
+              .querySelector(".view_detail_button_outline")
+              ?.getAttribute("href")}` || "",
+          img: e.querySelector(".internship_logo img")?.src ?? "",
         }))
     )
-    // console.log(jobs)
+    console.log(jobs)
     await Internshala.deleteMany({ jobs })
 
     // Save new data to MongoDB

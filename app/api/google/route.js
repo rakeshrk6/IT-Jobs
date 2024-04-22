@@ -1,3 +1,4 @@
+import { fetchGoogleJobs } from "@/app/scrappers/googleScrapper/fetchData"
 import Google from "@/models/google"
 
 import { connectToDB } from "@/utils/database"
@@ -7,6 +8,7 @@ import { connectToDB } from "@/utils/database"
 export const GET = async (req, res) => {
   try {
     await connectToDB()
+    // await fetchGoogleJobs()
     // await canFetch()
     const jobs = await Google.find({})
 

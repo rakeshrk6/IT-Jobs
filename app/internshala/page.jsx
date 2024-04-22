@@ -4,7 +4,6 @@ import JobFilter from "@/components/JobFilter"
 import { RxCross2 } from "react-icons/rx"
 import Image from "next/image"
 import { Suspense, useEffect, useState } from "react"
-import Loading from "./loading"
 
 function page() {
   const [data, setData] = useState([])

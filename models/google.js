@@ -6,6 +6,7 @@ const GoogleSchema = new Schema({
   location: { type: String },
   jobType: { type: String },
   url: { type: String },
+  date: { type: Date, default: Date.now },
 })
 
 const Google = models.Google || model("Google", GoogleSchema)

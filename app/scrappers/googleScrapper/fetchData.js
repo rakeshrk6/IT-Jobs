@@ -19,7 +19,7 @@ export async function fetchGoogleJobs() {
         url: e.querySelector(".VfPpkd-dgl2Hf-ppHlrf-sM5MNb a").href,
       }))
     )
-    // console.log(jobs)
+    console.log(jobs)
     await Google.deleteMany({ jobs })
 
     // Save new data to MongoDB
