@@ -16,25 +16,16 @@ export async function fetchInternshalaData() {
       "#internship_list_container_1 .individual_internship",
       (ele) =>
         ele.map((e) => ({
-          title:
-            e.querySelector(".individual_internship_header .heading_4_5")
-              ?.innerText || "",
-          companyName:
-            e.querySelector(".individual_internship_header .company_name")
-              ?.innerText || "",
-          location: e.querySelector("#location_names")?.innerText || "",
-          stipend:
-            e.querySelector(".stipend_container .item_body span")?.innerText ||
-            "",
-          jobType:
-            e.querySelector(".other_label_container .status")?.innerText || "",
-          url:
-            `https://internshala.com${e
-              .querySelector(".view_detail_button_outline")
-              ?.getAttribute("href")}` || "",
+          title: e.querySelector(".job-internship-name")?.innerText || "",
+          companyName: e.querySelector(".company-name")?.innerText || "",
+          location: e.querySelector(".locations")?.innerText || "",
+          stipend: e.querySelector(".stipend")?.innerText || "",
+          jobType: e.querySelector(".status-li")?.innerText || "",
+          url: `https://internshala.com${e.getAttribute("data-href")}` || "",
           img: e.querySelector(".internship_logo img")?.src ?? "",
         }))
     )
+    // console.log(jobs)
     await Internshala.deleteMany({ jobs })
 
     // Save new data to MongoDB
