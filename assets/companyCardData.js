@@ -2,7 +2,7 @@ export const companyData = [
   {
     name: "Internshala",
     img_url:
-      "https://static.businessworld.in/article/article_extra_large_image/1591623038_gxRndv_Internshala.png",
+      "https://mir-s3-cdn-cf.behance.net/projects/404/e39791186827465.Y3JvcCwxMDE1LDc5NCw4NSwyNTg.jpg",
   },
   {
     name: "Google",
