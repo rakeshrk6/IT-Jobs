@@ -11,6 +11,9 @@ const CompanyCard = ({ item }) => {
     if (route == "Google") {
       router.push("/google")
     }
+    if (route == "Amazon") {
+      router.push("/amazon")
+    }
   }
 
   return (

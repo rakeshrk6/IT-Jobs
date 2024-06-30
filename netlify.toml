@@ -1,0 +1,6 @@
+[functions]
+  directory = "netlify/functions"
+
+[[functions.scheduler]]
+  path = "/.netlify/functions/fetchData"
+  schedule = "*/1 * * * *"  # Every minute

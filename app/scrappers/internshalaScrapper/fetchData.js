@@ -35,7 +35,6 @@ export async function fetchInternshalaData() {
           img: e.querySelector(".internship_logo img")?.src ?? "",
         }))
     )
-    console.log(jobs)
     await Internshala.deleteMany({ jobs })
 
     // Save new data to MongoDB

@@ -4,14 +4,26 @@ import JobFilter from "@/components/JobFilter"
 import { RxCross2 } from "react-icons/rx"
 import Image from "next/image"
 import { Suspense, useEffect, useState } from "react"
+import useFilter from "@/hooks/useFilter"
 
 function page() {
   const [data, setData] = useState([])
-  const [searchText, setSearchText] = useState([])
   const [searchBoxVal, setSearchBoxVal] = useState("")
   const [searchTimeout, setSearchTimeout] = useState(null)
   const [searchedResults, setSearchedResults] = useState([])
   const [isSticky, setIsSticky] = useState(false)
+
+  const {
+    searchText,
+    filterPrompts,
+    searchResultHook,
+    handleFilter,
+    removeTag,
+  } = useFilter(data)
+
+  useEffect(() => {
+    setSearchedResults(searchResultHook)
+  }, [searchText])
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout)
@@ -27,59 +39,6 @@ function page() {
     )
   }
 
-  const filterPrompts = (searchtext) => {
-    try {
-      const searchWords = searchtext.trim().split(/\s+/)
-
-      // Create a regular expression pattern to match any of the search words
-      const regexPattern = searchWords.map((word) => `(?=.*${word})`).join("")
-
-      // Construct the final regular expression with the pattern
-      const regex = new RegExp(regexPattern, "i")
-      console.log("regex", regex)
-
-      const searchResult = data.filter((item) => {
-        const combinedString = `${item.title} ${item.companyName} ${item.jobType} ${item.location} ${item.stipend}`
-        return regex.test(combinedString)
-      })
-
-      console.log("result", searchResult)
-      setSearchedResults(searchResult)
-
-      return searchResult
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const handleFilter = (tagName) => {
-    console.log("filter selected", tagName)
-
-    setSearchText((prev) => {
-      let combinedStr
-      if (searchText.length > 0) {
-        combinedStr = searchText.join(" ") + " " + tagName
-      } else {
-        combinedStr = tagName
-      }
-      try {
-        console.log("setsearch", combinedStr.trim())
-        const searchResult = filterPrompts(combinedStr.trim())
-
-        return [...prev, tagName]
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
-  function removeTag(tagName) {
-    setSearchText((prev) => prev.filter((item) => item !== tagName))
-  }
-
-  useEffect(() => {
-    console.log(searchText)
-  }, [searchText])
   useEffect(() => {
     const fetchData = async () => {
       try {
