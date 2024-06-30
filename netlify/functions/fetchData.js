@@ -1,5 +1,5 @@
-import { fetchGoogleJobs } from "@/app/scrappers/googleScrapper/fetchData"
-import { fetchInternshalaData } from "@/app/scrappers/internshalaScrapper/fetchData"
+import { fetchGoogleJobs } from "../../app/scrappers/googleScrapper/fetchData"
+import { fetchInternshalaData } from "../../app/scrappers/internshalaScrapper/fetchData"
 
 export const handler = async (event, context) => {
   try {
