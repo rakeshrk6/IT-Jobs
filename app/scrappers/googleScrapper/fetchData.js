@@ -1,7 +1,6 @@
 import Google from "../../../models/google"
 
 import puppeteer from "puppeteer"
-const cron = require("cron")
 
 export async function fetchGoogleJobs() {
   try {

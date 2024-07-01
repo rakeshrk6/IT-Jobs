@@ -1,7 +1,6 @@
 import Amazon from "../../../models/amazon"
 
 import puppeteer from "puppeteer"
-const cron = require("cron")
 
 export async function fetchAmazonJobs() {
   try {
