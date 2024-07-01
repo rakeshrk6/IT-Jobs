@@ -1,7 +1,5 @@
-import { fetchAmazonJobs } from "@/app/scrappers/amazonScrapper/fetchData"
-import Amazon from "@/models/amazon"
-
-import { connectToDB } from "@/utils/database"
+import Amazon from "../../../models/amazon"
+import { connectToDB } from "../../../utils/database"
 
 export const GET = async (req, res) => {
   try {

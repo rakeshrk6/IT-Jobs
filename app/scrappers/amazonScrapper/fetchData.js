@@ -1,4 +1,5 @@
-import Amazon from "@/models/amazon"
+import Amazon from "../../../models/amazon"
+
 const puppeteer = require("puppeteer")
 const cron = require("cron")
 

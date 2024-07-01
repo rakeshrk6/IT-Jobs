@@ -1,8 +1,9 @@
 "use client"
-import JobFeed from "@/components/JobFeed"
-import JobFilter from "@/components/JobFilter"
-import useFilter from "@/hooks/useFilter"
+
 import { useEffect, useState } from "react"
+import useFilter from "../../../hooks/useFilter"
+import JobFeed from "../../../components/JobFeed"
+import JobFilter from "../../../components/JobFilter"
 
 const page = () => {
   const [data, setData] = useState([])

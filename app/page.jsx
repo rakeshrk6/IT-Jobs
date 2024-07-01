@@ -1,5 +1,5 @@
-import { companyData } from "@/assets/companyCardData"
-import CompanyCard from "@/components/CompanyCard"
+import { companyData } from "../assets/companyCardData"
+import CompanyCard from "../components/CompanyCard"
 
 const page = () => {
   return (

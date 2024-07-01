@@ -1,10 +1,11 @@
 "use client"
-import JobFeed from "@/components/JobFeed"
-import JobFilter from "@/components/JobFilter"
+
 import { RxCross2 } from "react-icons/rx"
 import Image from "next/image"
 import { Suspense, useEffect, useState } from "react"
-import useFilter from "@/hooks/useFilter"
+import useFilter from "../../../hooks/useFilter"
+import JobFeed from "../../../components/JobFeed"
+import JobFilter from "../../../components/JobFilter"
 
 function page() {
   const [data, setData] = useState([])

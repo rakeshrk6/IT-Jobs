@@ -1,5 +1,4 @@
-import TextField from "@mui/material/TextField"
-import Autocomplete from "@mui/material/Autocomplete"
+import { Autocomplete, TextField } from "@mui/material"
 
 export default function Locations({ handleFilter }) {
   const handleChange = (event, newValue) => {

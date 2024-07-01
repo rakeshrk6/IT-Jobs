@@ -1,6 +1,5 @@
-import Linkedin from "@/models/linkedin"
-import { fetchLinkedinJobs } from "@/app/scrappers/linkedinScrapper/fetchData"
-import { connectToDB } from "@/utils/database"
+import Linkedin from "../../../models/linkedin"
+import { connectToDB } from "../../../utils/database"
 
 export const GET = async (req, res) => {
   try {

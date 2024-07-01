@@ -1,9 +1,5 @@
-import Internshala from "@/models/internshala"
-import { connectToDB } from "@/utils/database"
-import { fetchGoogleJobs } from "@/app/scrappers/googleScrapper/fetchData"
-import { fetchInternshalaData } from "@/app/scrappers/internshalaScrapper/fetchData"
-
-// export const dynamic = "force-dynamic"
+import Internshala from "../../../models/internshala"
+import { connectToDB } from "../../../utils/database"
 
 export const GET = async (req, res) => {
   try {

@@ -1,4 +1,5 @@
-import Google from "@/models/google"
+import Google from "../../../models/google"
+
 const puppeteer = require("puppeteer")
 const cron = require("cron")
 

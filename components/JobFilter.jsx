@@ -1,10 +1,11 @@
 "use client"
 import { useEffect, useState } from "react"
-import Profile, { ITJobRoles } from "./dropdown/Profile"
-import Locations, { ITJobLocationsIndia } from "./dropdown/Locations"
-import Salary, { MinSalary } from "./dropdown/Salary"
+
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
+import { ITJobRoles } from "./dropdown/Profile"
+import { ITJobLocationsIndia } from "./dropdown/Locations"
+import { MinSalary } from "./dropdown/Salary"
 
 const JobFilter = ({ handleFilter, removeTag }) => {
   const [profileValue, setProfileValue] = useState("")
