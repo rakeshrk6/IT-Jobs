@@ -5,7 +5,9 @@ import { connectToDB } from "../../../utils/database"
 export async function fetchInternshalaData() {
   try {
     await connectToDB()
-    const browser = await puppeteer.launch()
+    const browser = await puppeteer.launch({
+      executablePath: "/path/to/Chrome",
+    })
     const page = await browser.newPage()
     await page.goto(
       "https://internshala.com/internships/front-end-development,software-development,web-development-internship/"
