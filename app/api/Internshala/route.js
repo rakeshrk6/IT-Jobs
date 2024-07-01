@@ -1,5 +1,6 @@
 import Internshala from "../../../models/internshala"
 import { connectToDB } from "../../../utils/database"
+import { fetchInternshalaData } from "../../scrappers/internshalaScrapper/fetchData"
 
 export const GET = async (req, res) => {
   try {
