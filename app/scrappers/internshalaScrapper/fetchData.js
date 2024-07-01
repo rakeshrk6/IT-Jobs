@@ -1,7 +1,7 @@
+import puppeteer from "puppeteer"
 import Internshala from "../../../models/internshala"
 import { connectToDB } from "../../../utils/database"
 
-const puppeteer = require("puppeteer")
 const cron = require("cron")
 
 export async function fetchInternshalaData() {
