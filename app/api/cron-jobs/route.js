@@ -4,10 +4,10 @@ import { fetchInternshalaData } from "../../scrappers/internshalaScrapper/fetchD
 
 export const GET = async (req, res) => {
   try {
-    await fetchInternshalaData()
+    const internshalaJobs = await fetchInternshalaData()
     await fetchGoogleJobs()
-    await fetchAmazonJobs()
-    return new Response("Data fetched", { status: 200 })
+    // await fetchAmazonJobs()
+    return new Response(JSON.stringify(internshalaJobs), { status: 200 })
   } catch (error) {
     return new Response("Failed to fetch all prompts", { status: 500 })
   }

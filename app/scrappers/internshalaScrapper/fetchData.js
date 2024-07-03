@@ -32,7 +32,7 @@ export async function fetchInternshalaData() {
 
     console.log("Internshala Data fetched and saved successfully.")
     await browser.close()
-    return
+    return jobs
   } catch (error) {
     console.error("Error fetching or saving data:", error)
   }
