@@ -4,7 +4,7 @@ import { fetchInternshalaData } from "../../app/scrappers/internshalaScrapper/fe
 export const handler = async (event, context) => {
   try {
     // await fetchInternshalaData()
-    // await fetchGoogleJobs()
+    await fetchGoogleJobs()
     console.log("cron jobs called")
     return new Response("Data fetched", { status: 200 })
   } catch (error) {
