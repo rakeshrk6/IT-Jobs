@@ -1,0 +1,2 @@
+[functions."fetchData"]
+schedule = "*/5 * * * *"
