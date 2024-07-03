@@ -1,11 +1,32 @@
-import puppeteer from "puppeteer"
 import Internshala from "../../../models/internshala"
 import { connectToDB } from "../../../utils/database"
 
 export async function fetchInternshalaData() {
   try {
     await connectToDB()
-    const browser = await puppeteer.launch()
+    let chrome = {}
+    let puppeteer
+
+    if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+      chrome = require("chrome-aws-lambda")
+      puppeteer = require("puppeteer-core")
+    } else {
+      puppeteer = require("puppeteer")
+    }
+
+    let options = {}
+
+    if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+      options = {
+        args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+        defaultViewport: chrome.defaultViewport,
+        executablePath: await chrome.executablePath,
+        headless: true,
+        ignoreHTTPSErrors: true,
+      }
+    }
+
+    const browser = await puppeteer.launch(options)
     const page = await browser.newPage()
     await page.goto(
       "https://internshala.com/internships/front-end-development,software-development,web-development-internship/"
