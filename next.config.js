@@ -11,11 +11,12 @@ const nextConfig = {
       },
     ],
   },
-  webpack(config) {
-    config.experiments = {
-      ...config.experiments,
-      topLevelAwait: true,
-    }
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.js\.map$/,
+      use: "null-loader",
+    })
+
     return config
   },
   reactStrictMode: false,
