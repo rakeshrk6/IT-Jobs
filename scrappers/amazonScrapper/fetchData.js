@@ -1,4 +1,4 @@
-import Amazon from "../../../models/amazon"
+import Amazon from "../../models/amazon"
 
 import puppeteer from "puppeteer"
 

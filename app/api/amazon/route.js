@@ -1,6 +1,6 @@
 import Amazon from "../../../models/amazon"
 import { connectToDB } from "../../../utils/database"
-import { fetchAmazonJobs } from "../../scrappers/amazonScrapper/fetchData"
+import { fetchAmazonJobs } from "../../../scrappers/amazonScrapper/fetchData"
 
 export const GET = async (req, res) => {
   try {

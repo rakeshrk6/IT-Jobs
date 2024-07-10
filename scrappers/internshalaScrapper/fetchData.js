@@ -1,5 +1,5 @@
-import Internshala from "../../../models/internshala"
-import { connectToDB } from "../../../utils/database"
+import Internshala from "../../models/internshala"
+import { connectToDB } from "../../utils/database"
 
 export async function fetchInternshalaData() {
   try {

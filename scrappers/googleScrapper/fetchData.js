@@ -1,4 +1,4 @@
-import Google from "../../../models/google"
+import Google from "../../models/google"
 
 import puppeteer from "puppeteer"
 

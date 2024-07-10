@@ -2,7 +2,7 @@
 
 import Google from "../../../models/google"
 import { connectToDB } from "../../../utils/database"
-import { fetchGoogleJobs } from "../../scrappers/googleScrapper/fetchData"
+import { fetchGoogleJobs } from "../../../scrappers/googleScrapper/fetchData"
 
 export const GET = async (req, res) => {
   try {

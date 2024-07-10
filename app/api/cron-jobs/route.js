@@ -1,6 +1,6 @@
-import { fetchAmazonJobs } from "../../scrappers/amazonScrapper/fetchData"
-import { fetchGoogleJobs } from "../../scrappers/googleScrapper/fetchData"
-import { fetchInternshalaData } from "../../scrappers/internshalaScrapper/fetchData"
+import { fetchAmazonJobs } from "../../../scrappers/amazonScrapper/fetchData"
+import { fetchGoogleJobs } from "../../../scrappers/googleScrapper/fetchData"
+import { fetchInternshalaData } from "../../../scrappers/internshalaScrapper/fetchData"
 
 export const GET = async (req, res) => {
   try {
