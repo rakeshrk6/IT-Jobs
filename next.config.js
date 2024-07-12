@@ -11,15 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.js\.map$/,
-      use: "null-loader",
-    })
-
-    return config
-  },
-  reactStrictMode: false,
 }
 
 module.exports = nextConfig
