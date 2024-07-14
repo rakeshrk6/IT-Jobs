@@ -25,9 +25,11 @@ const JobFeed = ({ data }) => {
                     <h2 className="font-medium text-sm mr-5">{item.stipend}</h2>
                   )}
 
-                  <h2 className="px-3 py-1 bg-gray-300 rounded-md text-sm text-gray-700 ">
-                    {item.jobType}
-                  </h2>
+                  {item.jobType && (
+                    <h2 className="px-3 py-1 bg-gray-300 rounded-md text-sm text-gray-700 ">
+                      {item.jobType}
+                    </h2>
+                  )}
                 </div>
               </div>
               <div className="relative ml-16 flex items-center flex-col">
