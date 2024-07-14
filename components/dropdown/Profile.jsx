@@ -21,6 +21,7 @@ export default function Profile({ handleFilter }) {
 
 export const ITJobRoles = [
   { label: "Software Development" },
+  { label: "Software Engineer" },
   { label: "Web Development" },
   { label: "Mobile App Development" },
   { label: "Full Stack Development" },
