@@ -1,5 +1,6 @@
 import Internshala from "../../../models/internshala"
 import { connectToDB } from "../../../utils/database"
+export const dynamic = "force-dynamic"
 
 export const GET = async (req, res) => {
   try {

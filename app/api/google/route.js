@@ -1,7 +1,6 @@
-// export const dynamic = "force-dynamic"
-
 import Google from "../../../models/google"
 import { connectToDB } from "../../../utils/database"
+export const dynamic = "force-dynamic"
 
 export const GET = async (req, res) => {
   try {
