@@ -1,15 +1,24 @@
-import express from "express"
-import dotenv from "dotenv"
-import { connect } from "./db connection/connection.js"
-import { fetchGoogleJobs } from "./scrappers/googleScrapper/fetchData.js"
-import { fetchInternshalaData } from "./scrappers/internshalaScrapper/fetchData.js"
-import cron from "node-cron"
-import { fetchAmazonJobs } from "./scrappers/amazonScrapper/fetchData.js"
+import express from "express";
+import dotenv from "dotenv";
+import { connect } from "./db connection/connection.js";
+import { fetchGoogleJobs } from "./scrappers/googleScrapper/fetchData.js";
+import { fetchInternshalaData } from "./scrappers/internshalaScrapper/fetchData.js";
+import cron from "node-cron";
+import { fetchAmazonJobs } from "./scrappers/amazonScrapper/fetchData.js";
+import router from "./routes.js";
+import cors from "cors";
 
-dotenv.config({ path: ".env" })
-const PORT = process.env.PORT
+dotenv.config({ path: ".env" });
+const PORT = process.env.PORT;
 
-const app = express()
+const app = express();
+
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.FRONTEND_URL,
+  })
+);
 
 // cron.schedule("0 0 * * *", () => {
 //   console.log("Task started")
@@ -19,38 +28,40 @@ const app = express()
 // })
 
 async function runJobs() {
-  await fetchInternshalaData()
-  await fetchGoogleJobs()
-  await fetchAmazonJobs()
+  await fetchInternshalaData();
+  await fetchGoogleJobs();
+  await fetchAmazonJobs();
 }
-runJobs()
+// runJobs()
 
 app.get("/", async (req, res) => {
-  res.send("home route")
-})
+  res.send("home route");
+});
+
+app.use("/api", router);
 app.get("/internshala", async (req, res) => {
-  const data = await fetchInternshalaData()
-  res.send(data)
-})
+  const data = await fetchInternshalaData();
+  res.send(data);
+});
 app.get("/amazon", async (req, res) => {
-  const data = await fetchAmazonJobs()
-  res.send(data)
-})
+  const data = await fetchAmazonJobs();
+  res.send(data);
+});
 app.get("/google", async (req, res) => {
-  const data = await fetchGoogleJobs()
-  res.send(data)
-})
+  const data = await fetchGoogleJobs();
+  res.send(data);
+});
 
 connect()
   .then(() => {
     try {
       app.listen(PORT, () => {
-        console.log("server started at", PORT)
-      })
+        console.log("server started at", PORT);
+      });
     } catch (error) {
-      console.log("cannot connect to server")
+      console.log("cannot connect to server");
     }
   })
   .catch((error) => {
-    console.log("invalid database connection", error)
-  })
+    console.log("invalid database connection", error);
+  });

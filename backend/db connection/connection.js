@@ -1,8 +1,8 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 export async function connect() {
   await mongoose.connect(process.env.ATLAS_URL, {
     dbName: "Job-app",
-  })
-  console.log("database connected")
+  });
+  console.log("database connected");
 }
